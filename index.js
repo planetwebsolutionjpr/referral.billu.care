@@ -17,6 +17,22 @@ const APPLE_APP_SITE_ASSOCIATION = {
     }
 };
 
+const ASSET_LINKS = [
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.billu.care",
+            "sha256_cert_fingerprints": [
+                "D0:9A:E3:89:50:E9:01:85:6B:BF:40:39:65:35:D6:7E:C2:52:2D:95:CE:A3:38:6C:30:69:07:C1:F9:47:E7:D2",
+                "22:56:61:87:FC:BA:C2:2C:52:C6:5F:6A:73:3F:DB:E3:5A:10:00:01:5C:ED:A5:D7:98:FE:B6:1B:F4:21:44:05"
+            ]
+        }
+    }
+];
+
 export default {
     async fetch(request) {
         const url = new URL(request.url);
@@ -35,7 +51,7 @@ export default {
             });
         }
 
-        // Serve .well-known/assetlinks.json - paste your assetlinks.json content here
+        // Serve .well-known/assetlinks.json
         if (pathname === '/.well-known/assetlinks.json') {
             return new Response(JSON.stringify(ASSET_LINKS), {
                 headers: { 'Content-Type': 'application/json' }
