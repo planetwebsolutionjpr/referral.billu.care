@@ -1,5 +1,22 @@
 import { UAParser } from 'ua-parser-js';
 
+const APPLE_APP_SITE_ASSOCIATION = {
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "922K75PNN5.com.billu",
+                "paths": ["/customerapp", "/customerapp/*"]
+            }
+        ]
+    },
+    "webcredentials": {
+        "apps": [
+            "922K75PNN5.com.billu"
+        ]
+    }
+};
+
 export default {
     async fetch(request) {
         const url = new URL(request.url);
@@ -9,6 +26,20 @@ export default {
         // Basic Route
         if (pathname === '/') {
             return new Response('Hello World!');
+        }
+
+        // Serve .well-known/apple-app-site-association
+        if (pathname === '/.well-known/apple-app-site-association') {
+            return new Response(JSON.stringify(APPLE_APP_SITE_ASSOCIATION), {
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+
+        // Serve .well-known/assetlinks.json - paste your assetlinks.json content here
+        if (pathname === '/.well-known/assetlinks.json') {
+            return new Response(JSON.stringify(ASSET_LINKS), {
+                headers: { 'Content-Type': 'application/json' }
+            });
         }
 
         const parser = new UAParser(userAgent);
