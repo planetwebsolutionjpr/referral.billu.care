@@ -1,0 +1,16 @@
+{
+  "name": "deep-link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "ua-parser-js": "^2.0.3"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
