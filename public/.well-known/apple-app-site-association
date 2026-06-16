@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "922K75PNN5.com.billu",
+        "paths": ["/customerapp", "/customerapp/*"]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "922K75PNN5.com.billu"
+    ]
+  }
+}
